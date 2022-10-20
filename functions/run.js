@@ -22,7 +22,7 @@ async function handlerFunction(event, ctx) {
   const browser = await playwright.launchChromium();
   const context = await browser.newContext();
   const page = await context.newPage();
-  await page.goto(url);
+  await page.goto(badgerPath);
 
   const bbox = await page.evaluate(() => {
     const root = document.getElementById("badger");
