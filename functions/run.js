@@ -25,8 +25,8 @@ async function handlerFunction(event, ctx) {
   await page.goto(badgerPath);
 
   const bbox = await page.evaluate(() => {
-    const root = document.getElementById("badger");
-    const { x, y, width, height } = root.children[0].getBoundingClientRect();
+    const badgerImg = document.getElementById("badger");
+    const { x, y, width, height } = badgerImg.getBoundingClientRect();
     return { x, y, width, height };
   });
 
