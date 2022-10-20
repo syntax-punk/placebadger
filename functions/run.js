@@ -23,6 +23,7 @@ async function handlerFunction(event, ctx) {
   const context = await browser.newContext();
   const page = await context.newPage();
   await page.goto(badgerPath);
+  await page.waitFor(1000); // hard wait for 1000ms
 
   const bbox = await page.evaluate(() => {
     const badgerImg = document.getElementById("badger");
