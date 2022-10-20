@@ -15,6 +15,12 @@ const getUrl = () => {
   return badgerPath;
 };
 
+function delay(time) {
+  return new Promise(function(resolve) { 
+      setTimeout(resolve, time)
+  });
+}
+
 async function handlerFunction(event, ctx) {
 
   const badgerPath = getUrl(); 
@@ -23,7 +29,7 @@ async function handlerFunction(event, ctx) {
   const context = await browser.newContext();
   const page = await context.newPage();
   await page.goto(badgerPath);
-  await page.waitFor(1000); // hard wait for 1000ms
+  await delay(2000);
 
   const bbox = await page.evaluate(() => {
     const badgerImg = document.getElementById("badger");
