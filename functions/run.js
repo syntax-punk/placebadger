@@ -15,9 +15,9 @@ const getUrl = () => {
   return badgerPath;
 };
 
-function delay(time) {
+function delay(millis) {
   return new Promise(function(resolve) { 
-      setTimeout(resolve, time)
+      setTimeout(resolve, millis)
   });
 }
 
@@ -29,7 +29,7 @@ async function handlerFunction(event, ctx) {
   const context = await browser.newContext();
   const page = await context.newPage();
   await page.goto(badgerPath);
-  await delay(2000);
+  await delay(1000);
 
   const bbox = await page.evaluate(() => {
     const badgerImg = document.getElementById("badger");
