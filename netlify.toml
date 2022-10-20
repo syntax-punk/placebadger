@@ -1,4 +1,5 @@
 [build]
+  command = "cd functions && npm i"
   publish="public"
   functions="functions"
 
